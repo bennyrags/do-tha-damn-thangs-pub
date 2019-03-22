@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>TO-DO App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      media="screen"
+      href="bootstrap.min.css"
+    />
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+    <script src="jquery-3.3.1.min.js"></script>
+    <script src="bootstrap.bundle.min.js"></script>
+    <script src="client.js"></script>
+  </head>
+  <body>
+    <header>
+      <h1>
+        DO THE DAMN
+        <span data-toggle="tooltip" title="*Thang means task">THANGS*</span>
+      </h1>
+    </header>
+    <section class="addThang">
+      <h2>Add a New Thang</h2>
+      <input type="text" id="thang-name-in" placeholder="The Thang Name" />
+      <input type="Date" id="thang-date-in" placeholder="The Thang Due Date" />
+      <button id="submit-thang">Submit Thang</button>
+    </section>
+    <section class="listOfThangs">
+        <h2>List of Thangs To Do</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>
+              Thang Name
+            </th>
+            <th>
+              Thang Due Date
+            </th>
+            <th>
+              &nbsp;
+            </th>
+            <th>
+              &nbsp;
+            </th>
+          </tr>
+        </thead>
+        <tbody id="thangs-output"> 
+
+        </tbody>
+      </table>
+    </section>
+  </body>
+</html>
