@@ -8,11 +8,11 @@ const thangsRouter = require('./modules/thangs');
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
 app.use(express.static('server/public'));
-//app.use('/thangs', thangsRouter);
+app.use('/thangs', thangsRouter);
 
-//listen
 console.log('This is thangsrouter', thangsRouter);
 
+//listen
 app.listen(PORT, () => {
 console.log('THIS PORT IS LISTENIN ON PORT ', PORT);
 
