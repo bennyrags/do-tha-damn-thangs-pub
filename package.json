@@ -1,0 +1,25 @@
+{
+  "name": "weekend-sql-to-do-list",
+  "version": "1.0.0",
+  "description": "Hello Primers!",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon server/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bennyrags/weekend-sql-to-do-list.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bennyrags/weekend-sql-to-do-list/issues"
+  },
+  "homepage": "https://github.com/bennyrags/weekend-sql-to-do-list#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "pg": "^7.9.0"
+  }
+}
