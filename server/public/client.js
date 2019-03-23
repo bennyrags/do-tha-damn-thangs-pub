@@ -7,7 +7,7 @@ function readyFunction() {
 $('#submit-thang').on('click', postThangs);
     $('#thangs-output').on('click', '.deleteThang', deleteThangs);
 //on click for complete button 
-  //$("#thangs-output").on("click", ".completeButton", completePopUp);
+  $("#thangs-output").on("click", ".completeThang", completeThang);
 }
 
 function displayThangs() {
@@ -25,7 +25,16 @@ function displayThangs() {
     });
 }//displayThangs
 
+function completeThang() {
+ // console.log('inside completeThang');
+  
+  //need to do a few things
+  //1. ajax put req to change value of completed to true
+  //2. change button to checkmark 
+  //3. color row of completed assignment
+  //do i do all of these things inside of one funct, two, etc
 
+}//completeThang
 
 function postThangs() {
     newThang = {
