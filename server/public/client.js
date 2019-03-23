@@ -1,6 +1,92 @@
 $(document).ready(readyFunction);
-
+let newThang = {};
 function readyFunction() {
-    console.log('JQ and JS workin on client.js');
+  console.log("JQ and JS workin on client.js");
+
+  displayThangs();
+$('#submit-thang').on('click', postThangs);
+
+//on click for complete button 
+  //$("#thangs-output").on("click", ".completeButton", completePopUp);
+}
+
+function displayThangs() {
+  console.log("Display thang");
+  $.ajax({
+    method: "GET",
+    url: "/thangs"
+  })
+    .then(function(response) {
+      renderThangs(response);
+    })
+    .catch(function(error) {
+      alert("There has been an error when trying to get thangs");
+      console.log("This is the error,", error);
+    });
+}
+
+
+
+function postThangs() {
+    newThang = {
+      thang_name: $("#thang-name-in").val(),
+      thang_date: $("#thang-date-in").val(),
+      completed: false
+    };
+
+    console.log('here is newThang in postThangs', newThang);
     
+
+    console.log('in postThangs');
+
+
+    $.ajax({
+        method:'POST',
+        url: '/thangs',
+        data: newThang
+    })
+    .then(function(){
+        displayThangs();
+        clearInputs();
+    })
+    .catch(function(error){
+        alert('There was an error while trying to post new Thang');
+        console.log('Error posting new Thang,', error);
+        
+    })
+}
+
+
+function renderThangs(response) {
+  let thangsArr = response;
+  let $tbody = $("#thangs-output");
+  $tbody.empty();
+  for (thang of thangsArr) {
+    //check to see if thang completed
+    //if thang completed, check where button was
+    let completed = "";
+    if (thang.completed === false) {
+      completed = `<button class="completeThang">Complete Thang</button>`;
+    } else {
+      completed = `&#10004;`;
+    }
+
+    let date = new Date(thang.thang_date);
+    let $tr = `<tr>
+     <td>${thang.thang_name}</td>
+     <td>${date.toLocaleDateString()}</td>
+     <td>${completed}</td>
+     <td><button class="deleteThang" data-toggle="modal" data-target="#deletionModal">Delete Thang</button></td>
+     </tr>`;
+    //the previous buttons have data toggle and data targets for modals that I hope to use to pop up 'are you sure' warnings
+
+    $tbody.append($tr);
+    //this data thang is causing an error AFTER rendering the row
+    //$tr.data(thang);
+  }
+}
+
+
+function clearInputs() {
+  $(".addThangInput").val("");
 }

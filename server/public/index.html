@@ -23,35 +23,122 @@
         <span data-toggle="tooltip" title="*Thang means task">THANGS*</span>
       </h1>
     </header>
-    <section class="addThang">
-      <h2>Add a New Thang</h2>
-      <input type="text" id="thang-name-in" placeholder="The Thang Name" />
-      <input type="Date" id="thang-date-in" placeholder="The Thang Due Date" />
-      <button id="submit-thang">Submit Thang</button>
-    </section>
-    <section class="listOfThangs">
+    <main>
+      <section class="addThang">
+        <h2>Add a New Thang</h2>
+        <input type="text" class="addThangInput" id="thang-name-in" placeholder="The Thang Name" />
+        <input
+          type="Date"
+         class="addThangInput"
+          id="thang-date-in"
+          placeholder="The Thang Due Date"
+        />
+        <button id="submit-thang">Submit Thang</button>
+      </section>
+      <section class="listOfThangs">
         <h2>List of Thangs To Do</h2>
-      <table class="table">
-        <thead>
-          <tr>
-            <th>
-              Thang Name
-            </th>
-            <th>
-              Thang Due Date
-            </th>
-            <th>
-              &nbsp;
-            </th>
-            <th>
-              &nbsp;
-            </th>
-          </tr>
-        </thead>
-        <tbody id="thangs-output"> 
-
-        </tbody>
-      </table>
-    </section>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>
+                 Thang Name
+              </th>
+              <th>
+                Thang Due Date
+              </th>
+              <th>
+                Thang Completed?
+              </th>
+              <th>
+                &nbsp;
+              </th>
+            </tr>
+          </thead>
+          <tbody id="thangs-output"></tbody>
+        </table>
+        <div
+          class="modal fade"
+          id="completionModal"
+          tabindex="-1"
+          role="dialog"
+          aria-labelledby="completionModal"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">
+                  Are You Sure You've Done the Damn Thang?
+                </h5>
+                <button
+                  type="button"
+                  class="close"
+                  data-dismiss="modal"
+                  aria-label="Close"
+                >
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                ...
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-dismiss="modal"
+                >
+                  Cancel
+                </button>
+                <button type="button" class="btn btn-primary">
+                  Thang Completed
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="modal fade"
+          id="deletionModal"
+          tabindex="-1"
+          role="dialog"
+          aria-labelledby="deletionModal"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">
+                  Are You Sure You Want to Delete the Damn Thang?
+                </h5>
+                <button
+                  type="button"
+                  class="close"
+                  data-dismiss="modal"
+                  aria-label="Close"
+                >
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                ...
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-dismiss="modal"
+                >
+                  Cancel
+                </button>
+                <button type="button" class="btn btn-primary">
+                  Thang Completed
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
   </body>
 </html>
