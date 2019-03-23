@@ -5,7 +5,7 @@ function readyFunction() {
 
   displayThangs();
 $('#submit-thang').on('click', postThangs);
-
+    $('#thangs-output').on('click', '.deleteThang', deleteThangs);
 //on click for complete button 
   //$("#thangs-output").on("click", ".completeButton", completePopUp);
 }
@@ -23,7 +23,7 @@ function displayThangs() {
       alert("There has been an error when trying to get thangs");
       console.log("This is the error,", error);
     });
-}
+}//displayThangs
 
 
 
@@ -54,7 +54,8 @@ function postThangs() {
         console.log('Error posting new Thang,', error);
         
     })
-}
+}//postThangs
+
 
 
 function renderThangs(response) {
@@ -72,19 +73,43 @@ function renderThangs(response) {
     }
 
     let date = new Date(thang.thang_date);
-    let $tr = `<tr>
+    let $tr = $(`<tr>
      <td>${thang.thang_name}</td>
      <td>${date.toLocaleDateString()}</td>
      <td>${completed}</td>
-     <td><button class="deleteThang" data-toggle="modal" data-target="#deletionModal">Delete Thang</button></td>
-     </tr>`;
+     <td><button class="deleteThang">Delete Thang</button></td>
+     </tr>`);
     //the previous buttons have data toggle and data targets for modals that I hope to use to pop up 'are you sure' warnings
 
     $tbody.append($tr);
     //this data thang is causing an error AFTER rendering the row
-    //$tr.data(thang);
+    $tr.data(thang);
   }
-}
+}//renderThangs
+
+function deleteThangs() {
+    //console.log('inside deleteThang');
+    let deleteButton = $(this);
+    //console.log('this is this in deleteThangs', $(this));
+    let $tr = deleteButton.closest('tr');
+    console.log('this is $tr in deleteThangs', $tr);
+    let $id = $tr.data('id');
+    console.log('this is $id in deleteThangs', $id);
+
+    $.ajax ({
+        method: 'DELETE',
+        url: `/thangs/${$id}`
+    })
+    .then(function(){
+        displayThangs();
+    })
+    .catch(function(error){
+        alert('There was an error when you attempted to delete a Thang')
+        console.log('here is the error in deleting', error);
+        
+    })
+
+}//deleteThangs
 
 
 function clearInputs() {
