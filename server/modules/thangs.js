@@ -25,11 +25,11 @@ router.post("/", (req, res) => {
 });
 
 router.delete("/:id", (req,res) => {
-    let thang = req.body;
+    let id = req.params.id;
     let sqlText = `DELETE FROM "thangs-table" WHERE id=$1;`
-    console.log('this is the thang id', thang.id);
+    console.log('this is the thang id', id);
     
-    pool.query(sqlText, [thang.id])
+    pool.query(sqlText, [id])
     .then(response=>{
         res.sendStatus(201);
     })
