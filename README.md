@@ -58,4 +58,4 @@ For each of your strech goals, you will be practicing git branching. Please refe
 
 - `feature-ordering-task-query` 
 
-    - [ ]  Research [Query Params](https://expressjs.com/en/api.html#req.query) to have the request reverse the order of the returned todos. 
+    - [ ]  Research [Query ç](https://expressjs.com/en/api.html#req.query) to have the request reverse the order of the returned todos. 
