@@ -20,19 +20,23 @@ header h2 {
     margin-top:2em;
 }
 
-.completedThang, .completeThang {
+.completedThang, .completeThang, #thangCompleted {
     background-color:#77dd77;
 }
 
-.submitThang {
-    background-color:#aec6cf;
-}
-
-button{ 
-border: none;
-    border-radius: 3px;
+.btn {
+    border:none;
+    border-color:transparent;
+     border-radius: 3px;
     padding: 3px 15px;
+    color:black;
 }
+
+.btn-secondary {
+    background: #c3c3c3;
+}
+
+
 
 .deleteThang {
     background-color:#ff6961;
@@ -40,4 +44,12 @@ border: none;
 
 .deleteThang {
     background-color:#ff6961;
+}
+
+#thangToCompleteName {
+border-bottom:2px solid #77dd77;
+
+}
+#thangToDeleteName {
+border-bottom:2px solid #ff6961;
 }
