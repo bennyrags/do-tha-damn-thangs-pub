@@ -1,34 +1,72 @@
 body {
-    height: 100vh;
-    background-image: linear-gradient(rgba(230,230,224,.1), rgba(230,230,224,1));
+    height: 100%;
+   background: linear-gradient(powderblue,lightgrey)
 }
 
 header, main {
     padding:1em;   
+    max-width:1200px;
+    margin:auto;
 }
 
 h1 {
     font-size:7vw;
+    font-weight: 900; 
 }
 
-header h2 {
-    font-size: 1.97vw;
-    text-align: right;
+h2 {
+    font-size:5vw;
+    font-weight:800;
 }
+
+h1 > span {
+     background: linear-gradient(to right,#77dd77, #ff6962);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+input, .submit {    
+    width: 90%;
+    padding: 10px;
+    margin-bottom:15px;
+    border:none;
+}
+
+.row {
+    margin-left:0;
+    margin-right:0;
+}
+
+input, .btn {
+    border-radius: 5px;
+}
+
+.table td, .table th {
+     border-top:1px solid #c3c3c3;
+    }
+
+ .table thead th {
+    border-bottom: none;
+}   
 
 .addThang, .listOfThangs {
-    margin-top:2em;
+    margin-top:.5em;
+    width: 100%;
+    display: block;
 }
 
 .completedThang, .completeThang, #thangCompleted {
-    background-color:#77dd77;
+    background-color:#4ed34e;
+}
+
+.completeThang:hover {
+    background-color:#4ed34e;
 }
 
 .btn {
     border:none;
     border-color:transparent;
-     border-radius: 3px;
-    padding: 3px 15px;
+    padding: 10px 15px;
     color:black;
 }
 
@@ -42,8 +80,8 @@ header h2 {
     background-color:#ff6961;
 }
 
-.deleteThang {
-    background-color:#ff6961;
+.deleteThang:hover {
+    background-color:#ff392e;
 }
 
 #thangToCompleteName {
@@ -52,4 +90,30 @@ border-bottom:2px solid #77dd77;
 }
 #thangToDeleteName {
 border-bottom:2px solid #ff6961;
+}
+
+@media (max-width:600px) {
+    main {
+        padding: 0;
+    }
+    input {
+        padding:5px;
+        width:100%;
+    }
+    p, th,td,.btn,label,input {
+        font-size:12px;
+    }
+    .btn {
+        padding:3px 6px;
+    }
+
+    .table td, .table th {
+        padding: .5em .25em;
+    }
+
+    .submit.btn {
+        padding: 5px 10px;
+        width:initial;
+        text-align:left;
+    }
 }

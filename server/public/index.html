@@ -19,27 +19,52 @@
   <body>
     <header>
       <h1>
-        DO THE DAMN
-        <span data-toggle="tooltip" title="*Thang means task">THANGS*</span>
+        DO THE
+        <span data-toggle="tooltip" title="*DAMN THANG means task"
+          >DAMN THANGS*</span
+        >
       </h1>
-      <h2>*-Thangs meaning tasks</h2>
+      <p>
+        * - DAMN THANGS is a better word for tasks. We all want to succeed in
+        life. For some people, that means writing down tasks and completing
+        them. For the creator of this little app, it means DOING THE DAMN THANG
+        until ALL OF THE DAMN THANGS are done.
+      </p>
+
+      <p>
+        This app is designed to help you add and track the DAMN THANGS you got
+        to do.
+      </p>
     </header>
     <main>
       <section class="addThang">
         <h2>Add a New Thang</h2>
-        <input
-          type="text"
-          class="addThangInput"
-          id="thang-name-in"
-          placeholder="The Thang Name"
-        />
-        <input
-          type="Date"
-          class="addThangInput"
-          id="thang-date-in"
-          placeholder="The Thang Due Date"
-        />
-        <button class="btn btn-secondary" id="submit-thang">Submit Thang</button>
+        <div class="row">
+          <div class="col-md-8 col-lg-8">
+            <label for="thang-name-in">
+              Thang Name
+            </label>
+            <input type="text" class="addThangInput" id="thang-name-in" />
+          </div>
+          <div class="col-md-4 col-lg-4">
+            <label for="thang-date-in">
+              Thang Due Date
+            </label>
+            <input
+              type="Date"
+              class="addThangInput"
+              id="thang-date-in"
+              placeholder="The Thang Due Date"
+            />
+          </div>
+        </div>
+        <div class="row justify-content-end">
+          <div class="col-md-4 col-lg-4">
+            <button class="submit btn btn-secondary" id="submit-thang">
+              Submit Thang
+            </button>
+          </div>
+        </div>
       </section>
       <section class="listOfThangs">
         <h2>List of Thangs To Do</h2>
@@ -86,7 +111,8 @@
                 </button>
               </div>
               <div class="modal-body">
-                Are You Absolutely, Positively, Truly, Madly, Deeply Sure You've Completed <span id="thangToCompleteName"></span>
+                Are You Absolutely, Positively, Truly, Madly, Deeply Sure You've
+                Completed <span id="thangToCompleteName"></span>
               </div>
               <div class="modal-footer">
                 <button
@@ -96,7 +122,11 @@
                 >
                   Cancel
                 </button>
-                <button type="button" id="thangCompleted" class="btn btn-primary">
+                <button
+                  type="button"
+                  id="thangCompleted"
+                  class="btn btn-primary"
+                >
                   Thang Completed
                 </button>
               </div>
@@ -127,7 +157,8 @@
                 </button>
               </div>
               <div class="modal-body">
-Are You Sure You Won't Miss <span id="thangToDeleteName"></span>? Be Honest.
+                Are You Sure You Won't Miss
+                <span id="thangToDeleteName"></span>? Be Honest.
               </div>
               <div class="modal-footer">
                 <button
@@ -137,7 +168,11 @@ Are You Sure You Won't Miss <span id="thangToDeleteName"></span>? Be Honest.
                 >
                   Cancel
                 </button>
-                <button type="button" id="thangDeleted" class="btn btn-primary">
+                <button
+                  type="button"
+                  id="thangDeleted"
+                  class="deleteThang btn btn-primary"
+                >
                   Delete the Thang
                 </button>
               </div>

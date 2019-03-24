@@ -5,12 +5,11 @@ function readyFunction() {
 
   displayThangs();
   $("#submit-thang").on("click", postThangs);
- // $("#thangs-output").on("click", ".deleteThang", deleteThangs);
   //new onClick for complete modal
   $("#thangs-output").on("click", ".completeThang", completeModal);
   //new onClick for delete modal
   $("#thangs-output").on("click", ".deleteThang", deleteModal);
-}//readyFunction
+} //readyFunction
 
 function completeModal() {
   console.log("inside completeModal");
@@ -18,7 +17,7 @@ function completeModal() {
   let completeButton = $(this);
   let $tr = completeButton.closest("tr");
   let $id = $tr.data("id");
-  let $thangName = $tr.data('thang_name');
+  let $thangName = $tr.data("thang_name");
 
   $("#thangToCompleteName").text($thangName);
   //getting the id for the button in the modal
@@ -30,28 +29,28 @@ function completeModal() {
     completeThang($id, $tr);
     $("#completionModal").modal("hide");
   });
-}//completeModal
+} //completeModal
 
 function deleteModal() {
-  console.log('inside Delete Modal');
+  console.log("inside Delete Modal");
   //I realizet these are duplicates of the completeModal funct
   //This violates the D.R.Y rule, but I don't know how to do this without violating D.R.Y
   let deleteButton = $(this);
   let $tr = deleteButton.closest("tr");
   let $id = $tr.data("id");
   let $thangName = $tr.data("thang_name");
-  
+
   $("#thangToDeleteName").text($thangName);
 
   let $thangDeleted = $("#thangDeleted");
   $("#deletionModal").modal("show");
   //onclick that handles the thangcompleted button
-  $thangDeleted.on("click", function () {
+  $thangDeleted.on("click", function() {
     //calls the completeThang funct with id and tr passed along
     deleteThangs($id);
     $("#deletionModal").modal("hide");
   });
-}//delete
+} //delete
 
 function displayThangs() {
   console.log("Display thang");
@@ -69,12 +68,7 @@ function displayThangs() {
 } //displayThangs
 
 function completeThang($id, $tr) {
-  //  console.log('inside completeThang, this is $this', $(this));
-  console.log("inside completeThang, this is $tr, $id", $tr, $id);
-
-  // let completeButton = $(this);
-  // let $tr = completeButton.closest("tr");
-  // let $id = $tr.data("id");
+  //console.log("inside completeThang, this is $tr, $id", $tr, $id);
   $.ajax({
     method: "PUT",
     url: `/thangs/${$id}`
@@ -142,7 +136,7 @@ function renderThangs(response) {
      <td class="completedTd">${completed}</td>
      <td><button class="deleteThang btn btn-primary">Delete Thang</button></td>
      </tr>`);
-    
+
     $tbody.append($tr);
     //this data thang is causing an error AFTER rendering the row
     $tr.data(thang);
@@ -153,14 +147,6 @@ function renderThangs(response) {
 } //renderThangs
 
 function deleteThangs($id) {
-  //console.log('inside deleteThang');
- // let deleteButton = $(this);
-  //console.log('this is this in deleteThangs', $(this));
-  //let $tr = deleteButton.closest("tr");
-  //console.log("this is $tr in deleteThangs", $tr);
-  //let $id = $tr.data("id");
-  //console.log("this is $id in deleteThangs", $id);
-
   $.ajax({
     method: "DELETE",
     url: `/thangs/${$id}`
@@ -176,4 +162,4 @@ function deleteThangs($id) {
 
 function clearInputs() {
   $(".addThangInput").val("");
-}
+} //deleteThangs
