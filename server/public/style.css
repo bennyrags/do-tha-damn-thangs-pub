@@ -7,6 +7,15 @@ header, main {
     padding:1em;   
 }
 
+h1 {
+    font-size:7vw;
+}
+
+header h2 {
+    font-size: 1.97vw;
+    text-align: right;
+}
+
 .addThang, .listOfThangs {
     margin-top:2em;
 }
