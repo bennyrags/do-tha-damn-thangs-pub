@@ -1,7 +1,34 @@
+body {
+    height: 100vh;
+    background-image: linear-gradient(rgba(230,230,224,.1), rgba(230,230,224,1));
+}
+
 header, main {
     padding:1em;   
 }
 
 .addThang, .listOfThangs {
     margin-top:2em;
+}
+
+.completedThang, .completeThang {
+    background-color:#77dd77;
+}
+
+.submitThang {
+    background-color:#aec6cf;
+}
+
+button{ 
+border: none;
+    border-radius: 3px;
+    padding: 3px 15px;
+}
+
+.deleteThang {
+    background-color:#ff6961;
+}
+
+.deleteThang {
+    background-color:#ff6961;
 }

@@ -5,7 +5,7 @@ const pool = require("./pool");
 router.get("/", (req, res) => {
   //console.log("getting thangs");
   pool
-    .query('SELECT * FROM "thangs-table" ORDER BY "thang_date";')
+    .query('SELECT * FROM "thangs-table" ORDER BY "completed", "thang_date";')
     .then(result => {
       res.send(result.rows);
     });
@@ -39,6 +39,20 @@ router.delete("/:id", (req,res) => {
         
     })
 
+});
+
+router.put('/:id', (req,res) => {
+let id = req.params.id;
+let sqlText = `UPDATE "thangs-table" SET "completed"=$1 WHERE id=$2`;
+pool.query(sqlText, [true, id])
+.then(response => {
+res.sendStatus(201);
+})
+.catch(error=>{
+    res.sendStatus(500);
+    console.log('the put function did not work, heres the error, ', error );
+    
+})
 });
 
 module.exports = router;
