@@ -27,10 +27,15 @@
     <main>
       <section class="addThang">
         <h2>Add a New Thang</h2>
-        <input type="text" class="addThangInput" id="thang-name-in" placeholder="The Thang Name" />
+        <input
+          type="text"
+          class="addThangInput"
+          id="thang-name-in"
+          placeholder="The Thang Name"
+        />
         <input
           type="Date"
-         class="addThangInput"
+          class="addThangInput"
           id="thang-date-in"
           placeholder="The Thang Due Date"
         />
@@ -42,7 +47,7 @@
           <thead>
             <tr>
               <th>
-                 Thang Name
+                Thang Name
               </th>
               <th>
                 Thang Due Date
@@ -91,7 +96,7 @@
                 >
                   Cancel
                 </button>
-                <button type="button" class="btn btn-primary">
+                <button type="button" id="thangCompleted" class="btn btn-primary">
                   Thang Completed
                 </button>
               </div>
@@ -132,8 +137,8 @@
                 >
                   Cancel
                 </button>
-                <button type="button" class="btn btn-primary">
-                  Thang Completed
+                <button type="button" id="thangDeleted" class="btn btn-primary">
+                  Delete the Thang
                 </button>
               </div>
             </div>

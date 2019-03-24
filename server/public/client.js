@@ -6,7 +6,51 @@ function readyFunction() {
   displayThangs();
   $("#submit-thang").on("click", postThangs);
   $("#thangs-output").on("click", ".deleteThang", deleteThangs);
-  $("#thangs-output").on("click", ".completeThang", completeThang);
+  //$("#thangs-output").on("click", ".completeThang", completeThang);
+  //new attempt at modal pop-up. this is the button inside the modal pop up
+  //problem is that the completeThang funct relies on this to find closest tr.
+  //how to find tr to do stuff to without this
+  //perhaps call the modal pop up manually, 
+  //pass along the ID
+ //then use that id to call funct to do the rest
+//  $("#thangCompleted").on('click', completeThang);
+$("#thangs-output").on("click", ".completeThang", completeModal);
+
+}
+
+
+
+
+function completeModal() {
+  console.log('inside completeModal');
+  //get the id assoc with the closest tr
+  //attach that to a data-attr on the submit button in modal
+  //use that button on click event to call completeThang()
+  //change CompleteThang to update the row 
+let completeButton = $(this);
+let $tr = completeButton.closest("tr");
+let $id = $tr.data("id");
+//set the datakey on button to match tr data id
+
+//getting the id for the button in the modal
+  let $thangCompleted = $("#thangCompleted");
+  //attaching the id of the completed item to the button in an attr
+  //$thangCompleted.attr('data-id', $id);
+  // attaching id in the data of the button
+  //$thangCompleted.data($id);
+
+  //sets data id for button 
+  let buttonId = $thangCompleted.data('id',$id);
+  $('#completionModal').modal('show');
+  //onclick that handles the thangcompleted button
+  $thangCompleted.on('click', function(){
+    console.log('this is $tr in onclick in complete modal',$tr);
+    console.log('this is $id in onclick in complete modal',$id);
+    console.log('this is buttonid in onclick in complete modal',buttonId);
+    completeThang($id, $tr);
+    $("#completionModal").modal("close");
+    
+  })
 }
 
 function displayThangs() {
@@ -24,11 +68,13 @@ function displayThangs() {
     });
 } //displayThangs
 
-function completeThang() {
-  // console.log('inside completeThang');
-  let completeButton = $(this);
-  let $tr = completeButton.closest("tr");
-  let $id = $tr.data("id");
+function completeThang($id, $tr) {
+//  console.log('inside completeThang, this is $this', $(this));
+console.log('inside completeThang, this is $tr, $id', $tr, $id);
+ 
+// let completeButton = $(this);
+  // let $tr = completeButton.closest("tr");
+  // let $id = $tr.data("id");
   $.ajax({
     method: "PUT",
     url: `/thangs/${$id}`
