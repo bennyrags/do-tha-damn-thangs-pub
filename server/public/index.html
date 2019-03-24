@@ -27,14 +27,19 @@
     <main>
       <section class="addThang">
         <h2>Add a New Thang</h2>
-        <input type="text" class="addThangInput" id="thang-name-in" placeholder="The Thang Name" />
+        <input
+          type="text"
+          class="addThangInput"
+          id="thang-name-in"
+          placeholder="The Thang Name"
+        />
         <input
           type="Date"
-         class="addThangInput"
+          class="addThangInput"
           id="thang-date-in"
           placeholder="The Thang Due Date"
         />
-        <button class="submitThang" id="submit-thang">Submit Thang</button>
+        <button class="btn btn-secondary" id="submit-thang">Submit Thang</button>
       </section>
       <section class="listOfThangs">
         <h2>List of Thangs To Do</h2>
@@ -42,7 +47,7 @@
           <thead>
             <tr>
               <th>
-                 Thang Name
+                Thang Name
               </th>
               <th>
                 Thang Due Date
@@ -69,7 +74,7 @@
             <div class="modal-content">
               <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLongTitle">
-                  Are You Sure You've Done the Damn Thang?
+                  Are You Sure You've Completed the Damn Thang?
                 </h5>
                 <button
                   type="button"
@@ -81,7 +86,7 @@
                 </button>
               </div>
               <div class="modal-body">
-                ...
+                Are You Absolutely, Positively, Truly, Madly, Deeply Sure You've Completed <span id="thangToCompleteName"></span>
               </div>
               <div class="modal-footer">
                 <button
@@ -91,7 +96,7 @@
                 >
                   Cancel
                 </button>
-                <button type="button" class="btn btn-primary">
+                <button type="button" id="thangCompleted" class="btn btn-primary">
                   Thang Completed
                 </button>
               </div>
@@ -122,7 +127,7 @@
                 </button>
               </div>
               <div class="modal-body">
-                ...
+Are You Sure You Won't Miss <span id="thangToDeleteName"></span>? Be Honest.
               </div>
               <div class="modal-footer">
                 <button
@@ -132,8 +137,8 @@
                 >
                   Cancel
                 </button>
-                <button type="button" class="btn btn-primary">
-                  Thang Completed
+                <button type="button" id="thangDeleted" class="btn btn-primary">
+                  Delete the Thang
                 </button>
               </div>
             </div>
