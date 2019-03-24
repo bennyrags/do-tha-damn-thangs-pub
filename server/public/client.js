@@ -6,7 +6,6 @@ function readyFunction() {
   displayThangs();
   $("#submit-thang").on("click", postThangs);
   $("#thangs-output").on("click", ".deleteThang", deleteThangs);
-  //on click for complete button
   $("#thangs-output").on("click", ".completeThang", completeThang);
 }
 
@@ -30,18 +29,11 @@ function completeThang() {
   let completeButton = $(this);
   let $tr = completeButton.closest("tr");
   let $id = $tr.data("id");
-  //need to do a few things
-  //1. ajax put req to change value of completed to true
   $.ajax({
     method: "PUT",
     url: `/thangs/${$id}`
   })
     .then(function() {
-      //2. change button to checkmark
-      //this should happen when i run the display thangs which calls renderThangs
-      //this already happens
-      //3. color row of completed assignment
-      //add a background color class to the closest row
       $tr.addClass("completedThang");
       displayThangs();
     })
@@ -64,9 +56,8 @@ function postThangs() {
     completed: false
   };
 
-  console.log("here is newThang in postThangs", newThang);
-
-  console.log("in postThangs");
+  // console.log("here is newThang in postThangs", newThang);
+  // console.log("in postThangs");
 
   $.ajax({
     method: "POST",
