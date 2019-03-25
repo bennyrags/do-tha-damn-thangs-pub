@@ -9,14 +9,34 @@ function readyFunction() {
   $("#thangs-output").on("click", ".completeThang", completeModal);
   //new onClick for delete modal
   $("#thangs-output").on("click", ".deleteThang", deleteModal);
+
+  //NOTE - this is the click handler for my query string funct test
+
+  //$("#queryStringTest").on("click", queryStringReq);
 } //readyFunction
 
+//NOTE - this is my test querystring funct
+// function queryStringReq(){
+//   //where funct would go to call ajax get for query string router
+//   //want to reverse direction
+//   //look up how to make ajax get req w query string
+// //lets do a test
 
-function queryStringReq(){
-  //where funct would go to call ajax get for query string router
-  //want to reverse direction
-  //look up how to make ajax get req w query string
-}
+// $.ajax({
+// method: 'GET',
+// url: '/thangs/?order=desc'
+// })
+// .then(function(response){
+//   console.log('This is the response from the querystring req', response);
+//   //displayThangs();
+// })
+// .catch(function(error){
+//   console.log('This error is related to the queryString Req. Heres the error,', error);
+
+// }
+
+// )
+// }//queryStringReq
 
 function completeModal() {
   //get the id assoc with the closest tr

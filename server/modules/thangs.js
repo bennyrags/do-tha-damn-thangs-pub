@@ -3,22 +3,47 @@ const router = express.Router();
 const pool = require("./pool");
 
 
-//for stretch goal, i need to do another routher get with the query string
-
-router.get('/?', (req,res) => {
-    console.log(req.query);
-    
-}) 
-
-
 router.get("/", (req, res) => {
-  //console.log("getting thangs");
+ 
   pool
-    .query('SELECT * FROM "thangs-table" ORDER BY "completed", "thang_date";')
+    .query('SELECT * FROM "thangs-table" ORDER BY "thang_date";')
     .then(result => {
       res.send(result.rows);
     });
 });
+
+
+//for stretch goal, i need to do another routher get with the query string
+
+// --NOTE - this was my attempt at adding a req query if statement to the orignal GET router   
+
+// router.get("/", (req, res) => {
+//   //console.log("getting thangs");
+// //   if (req.query !== '{}') {
+// //       pool
+// //       .query(`SELECT * FROM "thangs-table" ORDER BY "than_date ${req.query.order};`)
+// //       .then(result => {
+// //           res.send(result.rows);
+// //       });
+// //   }
+// // else {
+//   pool
+//     .query('SELECT * FROM "thangs-table" ORDER BY "thang_date";')
+//     .then(result => {
+//       res.send(result.rows);
+//     });
+//   //}
+// });
+
+//--NOTE the following was my attempt to create a separate router.get query
+
+// router.get('/?', (req,res) => {
+//       console.log(req.query);
+//  res.send('hello');
+// }) 
+
+
+
 router.post("/", (req, res) => {
   let thang = req.body;
   console.log("posting thangs, here is thang", thang);
