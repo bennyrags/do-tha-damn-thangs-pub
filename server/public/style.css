@@ -95,7 +95,11 @@ input,
 #thangToDeleteName {
   border-bottom: 2px solid #ff6961;
 }
-
+@media (min-width:1200px) {
+    h1 {
+        font-size:6vw;
+    }
+}
 @media (max-width: 600px) {
   main {
     padding: 0;
