@@ -11,6 +11,13 @@ function readyFunction() {
   $("#thangs-output").on("click", ".deleteThang", deleteModal);
 } //readyFunction
 
+
+function queryStringReq(){
+  //where funct would go to call ajax get for query string router
+  //want to reverse direction
+  //look up how to make ajax get req w query string
+}
+
 function completeModal() {
   //get the id assoc with the closest tr
   let completeButton = $(this);
@@ -103,15 +110,14 @@ function displayThangs() {
     method: "GET",
     url: "/thangs"
   })
-    .then(function (response) {
+    .then(function(response) {
       renderThangs(response);
     })
-    .catch(function (error) {
+    .catch(function(error) {
       alert("There has been an error when trying to get thangs");
       console.log("This is the error,", error);
     });
 } //displayThangs
-
 
 function renderThangs(response) {
   let thangsArr = response;
