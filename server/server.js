@@ -10,10 +10,10 @@ app.use(bodyParser.json());
 app.use(express.static('server/public'));
 app.use('/thangs', thangsRouter);
 
-console.log('This is thangs router', thangsRouter);
+//console.log('This is thangs router', thangsRouter);
 
 //listen
 app.listen(PORT, () => {
-console.log('THIS PORT IS LISTENIN ON PORT ', PORT);
+console.log('THIS APP IS LISTENIN ON PORT ', PORT);
 
 });
