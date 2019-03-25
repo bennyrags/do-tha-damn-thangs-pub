@@ -1,8 +1,8 @@
 $(document).ready(readyFunction);
+//global var for obj that is sent to server on post
 let newThang = {};
-function readyFunction() {
-  console.log("JQ and JS workin on client.js");
 
+function readyFunction() {
   displayThangs();
   $("#submit-thang").on("click", postThangs);
   //new onClick for complete modal
@@ -12,16 +12,17 @@ function readyFunction() {
 } //readyFunction
 
 function completeModal() {
-  console.log("inside completeModal");
   //get the id assoc with the closest tr
   let completeButton = $(this);
   let $tr = completeButton.closest("tr");
   let $id = $tr.data("id");
   let $thangName = $tr.data("thang_name");
-
+  //put name of thang in modal text
   $("#thangToCompleteName").text($thangName);
-  //getting the id for the button in the modal
+
+  //getting the id for the submit button in the modal
   let $thangCompleted = $("#thangCompleted");
+  //manually calling the modal
   $("#completionModal").modal("show");
   //onclick that handles the thangcompleted button
   $thangCompleted.on("click", function() {
@@ -33,15 +34,14 @@ function completeModal() {
 
 function deleteModal() {
   console.log("inside Delete Modal");
-  //I realizet these are duplicates of the completeModal funct
+  //this code is basically copied from the completeModal function
   //This violates the D.R.Y rule, but I don't know how to do this without violating D.R.Y
   let deleteButton = $(this);
   let $tr = deleteButton.closest("tr");
   let $id = $tr.data("id");
   let $thangName = $tr.data("thang_name");
-
+  //add thang name text to delete modal
   $("#thangToDeleteName").text($thangName);
-
   let $thangDeleted = $("#thangDeleted");
   $("#deletionModal").modal("show");
   //onclick that handles the thangcompleted button
@@ -50,25 +50,10 @@ function deleteModal() {
     deleteThangs($id);
     $("#deletionModal").modal("hide");
   });
-} //delete
-
-function displayThangs() {
-  console.log("Display thang");
-  $.ajax({
-    method: "GET",
-    url: "/thangs"
-  })
-    .then(function(response) {
-      renderThangs(response);
-    })
-    .catch(function(error) {
-      alert("There has been an error when trying to get thangs");
-      console.log("This is the error,", error);
-    });
-} //displayThangs
+} //deleteModal
 
 function completeThang($id, $tr) {
-  //console.log("inside completeThang, this is $tr, $id", $tr, $id);
+  //funct takes args passed along from completeModal() call of this funct
   $.ajax({
     method: "PUT",
     url: `/thangs/${$id}`
@@ -90,14 +75,12 @@ function postThangs() {
     alert("You must fill out both fields before submitting your thang!");
     return;
   }
+  //fills newThang obj with vals from inputs and the default false field or completed
   newThang = {
     thang_name: thangNameIn,
     thang_date: thangDateIn,
     completed: false
   };
-
-  // console.log("here is newThang in postThangs", newThang);
-  // console.log("in postThangs");
 
   $.ajax({
     method: "POST",
@@ -114,21 +97,36 @@ function postThangs() {
     });
 } //postThangs
 
+function displayThangs() {
+  console.log("Display thang");
+  $.ajax({
+    method: "GET",
+    url: "/thangs"
+  })
+    .then(function (response) {
+      renderThangs(response);
+    })
+    .catch(function (error) {
+      alert("There has been an error when trying to get thangs");
+      console.log("This is the error,", error);
+    });
+} //displayThangs
+
+
 function renderThangs(response) {
   let thangsArr = response;
   let $tbody = $("#thangs-output");
   $tbody.empty();
   for (let thang of thangsArr) {
     //check to see if thang completed
-    //if thang completed, check where button was
+    //if thang completed, put check and arm emoji where button was
     let completed = "";
     if (thang.completed === false) {
       completed = `<button class="completeThang btn btn-primary">Complete Thang</button>`;
     } else {
       completed = `<span>&#10004; &#128170;</span>`;
-      // $completeTd.parent().addClass("completedThang");
     }
-
+    //format date and then put the array response items into table cells
     let date = new Date(thang.thang_date);
     let $tr = $(`<tr>
      <td>${thang.thang_name}</td>
@@ -162,4 +160,4 @@ function deleteThangs($id) {
 
 function clearInputs() {
   $(".addThangInput").val("");
-} //deleteThangs
+} //clearInputs

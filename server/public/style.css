@@ -1,119 +1,129 @@
 body {
-    height: 100%;
-   background: linear-gradient(powderblue,lightgrey)
+  height: 100%;
+  background: linear-gradient(powderblue, lightgrey);
 }
 
-header, main {
-    padding:1em;   
-    max-width:1200px;
-    margin:auto;
+header,
+main {
+  padding: 1em;
+  max-width: 1200px;
+  margin: auto;
 }
 
 h1 {
-    font-size:7vw;
-    font-weight: 900; 
+  font-size: 7vw;
+  font-weight: 900;
 }
 
 h2 {
-    font-size:5vw;
-    font-weight:800;
+  font-size: 4vw;
+  font-weight: 800;
 }
 
 h1 > span {
-     background: linear-gradient(to right,#77dd77, #ff6962);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+  background: linear-gradient(to right, #77dd77, #ff6962);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
-input, .submit {    
-    width: 90%;
-    padding: 10px;
-    margin-bottom:15px;
-    border:none;
+input,
+.submit {
+  width: 90%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: none;
 }
 
 .row {
-    margin-left:0;
-    margin-right:0;
+  margin-left: 0;
+  margin-right: 0;
 }
 
-input, .btn {
-    border-radius: 5px;
+input,
+.btn {
+  border-radius: 5px;
 }
 
-.table td, .table th {
-     border-top:1px solid #c3c3c3;
-    }
-
- .table thead th {
-    border-bottom: none;
-}   
-
-.addThang, .listOfThangs {
-    margin-top:.5em;
-    width: 100%;
-    display: block;
+.table td,
+.table th {
+  border-top: 1px solid #c3c3c3;
 }
 
-.completedThang, .completeThang, #thangCompleted {
-    background-color:#4ed34e;
+.table thead th {
+  border-bottom: none;
+}
+
+.addThang,
+.listOfThangs {
+  margin-top: 0.5em;
+  width: 100%;
+  display: block;
+}
+
+.completedThang,
+.completeThang,
+#thangCompleted {
+  background-color: #4ed34e;
 }
 
 .completeThang:hover {
-    background-color:#4ed34e;
+  background-color: #4ed34e;
 }
 
 .btn {
-    border:none;
-    border-color:transparent;
-    padding: 10px 15px;
-    color:black;
+  border: none;
+  border-color: transparent;
+  padding: 10px 15px;
+  color: black;
 }
 
 .btn-secondary {
-    background: #c3c3c3;
+  background: #c3c3c3;
 }
 
-
-
 .deleteThang {
-    background-color:#ff6961;
+  background-color: #ff6961;
 }
 
 .deleteThang:hover {
-    background-color:#ff392e;
+  background-color: #ff392e;
 }
 
 #thangToCompleteName {
-border-bottom:2px solid #77dd77;
-
+  border-bottom: 2px solid #77dd77;
 }
 #thangToDeleteName {
-border-bottom:2px solid #ff6961;
+  border-bottom: 2px solid #ff6961;
 }
 
-@media (max-width:600px) {
-    main {
-        padding: 0;
-    }
-    input {
-        padding:5px;
-        width:100%;
-    }
-    p, th,td,.btn,label,input {
-        font-size:12px;
-    }
-    .btn {
-        padding:3px 6px;
-    }
+@media (max-width: 600px) {
+  main {
+    padding: 0;
+  }
+  input {
+    padding: 5px;
+    width: 100%;
+  }
+  p,
+  th,
+  td,
+  .btn,
+  label,
+  input {
+    font-size: 12px;
+  }
+  .btn {
+    padding: 3px 6px;
+  }
 
-    .table td, .table th {
-        padding: .5em .25em;
-    }
+  .table td,
+  .table th {
+    padding: 0.5em 0.25em;
+  }
 
-    .submit.btn {
-        padding: 5px 10px;
-        width:initial;
-        text-align:left;
-    }
+  .submit.btn {
+    padding: 5px 10px;
+    width: initial;
+    text-align: left;
+  }
 }
