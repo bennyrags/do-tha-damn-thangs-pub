@@ -34,7 +34,7 @@ Steps to get this THANG runnin'.
 
 ## Screen Shot
 
-Include one or two screen shots of your project here (optional). Remove if unused.
+![screenshot of Do the DAMN THANG! app](https://glacial-river-83598.herokuapp.com/damn-thang-500x386.png)
 
 ### Completed Features
 
