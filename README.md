@@ -30,34 +30,34 @@ Steps to get this THANG runnin'.
 2. `npm install`
 3. `npm start`
 4. Set up the local PostgreSQL database, preferably with [Postico](https://eggerapps.at/postico/)
-5. START LISTIN THE DAMN HANGS
+5. START LISTIN THE DAMN THANGS
 
 ## Screen Shot
 
-![screenshot of Do the DAMN THANG! app](https://glacial-river-83598.herokuapp.com/damn-thang-500x386.png)
+![screenshot of Do the DAMN THANG! app](https://glacial-river-83598.herokuapp.com/damn-thang-500x386.png "Screenshot of the DAMN THANG!")
 
 ### Completed Features
 
-High level list of items completed.
-
-- [x] Feature a
-- [x] Feature b
+- [x] User ability to add and delete THANGS
+- [x] User ability to change state of THANGS
+- [x] Are You Sure pop-up checks before deleting or completing THANGS
+- [x] Fully Reponsive 
 
 ### Next Steps
 
-Features that you would like to add at some point in the future.
-
-- [ ] Feature c
+- [x] Ability to fully edit all aspects of all THANGS
+- [x] A THANG importance rating
+- [x] Alerts for THANGS that are due soon
 
 ## Deployment
 
-Add additional notes about how to deploy this on a live system
+This site was deployed to Heroku using Heroku CLI and Heroku's PostgreSQL addon. 
 
 ## Authors
 
-* Name of author(s)
+* Ben Ragsdale
 
 
 ## Acknowledgments
 
-* Hat tip to anyone who's code was used
+* Atbash, Mary Mosman, Kris Szafranski 
