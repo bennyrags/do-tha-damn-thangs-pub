@@ -39,9 +39,8 @@ Steps to get this THANG runnin'.
 ### Completed Features
 
 - [x] Created PostgreSQL database and table
-- [x] User ability to add and delete THANGS
-- [x] User ability to change state of THANGS
-- [x] Are You Sure pop-up checks before deleting or completing THANGS
+- [x] User ability to add, delete, and complete THANGS
+- [x] Are You Sure pop-up checks before deleting and completing THANGS
 - [x] Fully Reponsive 
 
 ### Next Steps
@@ -57,7 +56,6 @@ This site was deployed to Heroku using Heroku CLI and Heroku's PostgreSQL addon.
 ## Authors
 
 * Ben Ragsdale
-
 
 ## Acknowledgments
 
