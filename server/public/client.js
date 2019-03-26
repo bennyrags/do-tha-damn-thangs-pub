@@ -63,8 +63,8 @@ function completeThang($id, $tr) {
       displayThangs();
     })
     .catch(function(error) {
-      alert("This change to Thang did not go through");
-      console.log("Error changing the thang, here is the error:", error);
+      alert("This change to THANG did not go through");
+      console.log("Error changing the THANG, here is the error:", error);
     });
 } //completeThang
 
@@ -72,7 +72,7 @@ function postThangs() {
   let thangNameIn = $("#thang-name-in").val();
   let thangDateIn = $("#thang-date-in").val();
   if (thangNameIn === "" || thangDateIn === "") {
-    alert("You must fill out both fields before submitting your thang!");
+    alert("You must fill out both fields before submitting your THANG!");
     return;
   }
   //fills newThang obj with vals from inputs and the default false field or completed
@@ -92,8 +92,8 @@ function postThangs() {
       clearInputs();
     })
     .catch(function(error) {
-      alert("There was an error while trying to post new Thang");
-      console.log("Error posting new Thang,", error);
+      alert("There was an error while trying to post new THANG");
+      console.log("Error posting new THANG,", error);
     });
 } //postThangs
 
@@ -122,7 +122,7 @@ function renderThangs(response) {
     //if thang completed, put check and arm emoji where button was
     let completed = "";
     if (thang.completed === false) {
-      completed = `<button class="completeThang btn btn-primary">Complete Thang</button>`;
+      completed = `<button class="completeThang btn btn-primary">Complete THANG</button>`;
     } else {
       completed = `<span>&#10004; &#128170;</span>`;
     }
@@ -132,7 +132,7 @@ function renderThangs(response) {
      <td>${thang.thang_name}</td>
      <td>${date.toLocaleDateString()}</td>
      <td class="completedTd">${completed}</td>
-     <td><button class="deleteThang btn btn-primary">Delete Thang</button></td>
+     <td><button class="deleteThang btn btn-primary">Delete THANG</button></td>
      </tr>`);
 
     $tbody.append($tr);
