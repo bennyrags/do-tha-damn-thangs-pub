@@ -59,4 +59,4 @@ This site was deployed to Heroku using Heroku CLI and Heroku's PostgreSQL addon.
 
 ## Acknowledgments
 
-* Atbash, Mary Mosman, Kris Szafranski 
+* Atbash, Mary Mosman, Kris Szafranski
